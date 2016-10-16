@@ -69,7 +69,7 @@ var App = (function (_React$Component) {
 		value: function render() {
 			return React.createElement(
 				'div',
-				{ style: { padding: '20', width: '500', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' } },
+				{ style: { padding: '20', width: '400', marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' } },
 				React.createElement(
 					'button',
 					{ onClick: this.onResetRequest },
