@@ -1,4 +1,4 @@
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.ReactSvgTimer = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 //! moment.js
 //! version : 2.15.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -16731,7 +16731,75 @@ exports.tryCatch = tryCatch;
 ;
 
 },{"./errorObject":262}],277:[function(require,module,exports){
-(function (global){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+/* A stateless component */
+
+var TimerSVG = function TimerSVG(props) {
+  return _react2["default"].createElement(
+    "svg",
+    { version: "1.1",
+      baseProfile: "tiny",
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "100%", height: "100%",
+      viewBox: "0 0 140 175"
+    },
+    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "60.75", fill: props.outerColour }),
+    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "59.75", fill: props.countdownColour }),
+    _react2["default"].createElement("path", { d: props.draw, fill: props.outerColour }),
+    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "48", fill: props.innerColour, stroke: props.outerColour }),
+    _react2["default"].createElement(
+      "g",
+      { id: "playButton", opacity: props.timerIsRunning ? 0 : 1 },
+      _react2["default"].createElement("path", { d: "M 55 50 L 55 91 L 95 69 L 55 50", fill: props.outerColour })
+    ),
+    _react2["default"].createElement(
+      "g",
+      { id: "pauseButton", opacity: props.timerIsRunning ? 1 : 0 },
+      _react2["default"].createElement("rect", { x: "53", y: "53", height: "36", width: "13", rx: "0", ry: "0", fill: props.outerColour }),
+      _react2["default"].createElement("rect", { x: "74", y: "53", height: "36", width: "13", rx: "0", ry: "0", fill: props.outerColour })
+    ),
+    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "48", opacity: "0", onClick: props.clickStart }),
+    props.displayCountdown ? _react2["default"].createElement(
+      "text",
+      { x: "70", y: "165", textAnchor: "middle", style: { fill: "#333", fontSize: "28px" } },
+      props.timerText
+    ) : null
+  );
+};
+
+TimerSVG.propTypes = {
+  outerColour: _react2["default"].PropTypes.string,
+  innerColour: _react2["default"].PropTypes.string,
+  countdownColour: _react2["default"].PropTypes.string,
+  displayCountdown: _react2["default"].PropTypes.bool,
+  timerIsRunning: _react2["default"].PropTypes.bool,
+  timerText: _react2["default"].PropTypes.string,
+  draw: _react2["default"].PropTypes.string,
+  clickStart: _react2["default"].PropTypes.func
+};
+TimerSVG.defaultProps = {
+  outerColour: '#333',
+  innerColour: '#fff',
+  countdownColour: '#00ffa8',
+  displayCountdown: true
+};
+
+exports["default"] = TimerSVG;
+module.exports = exports["default"];
+/* Outer circle */ /* Countdown circle */ /* The black circle that covers the colour as the timer counts down */ /* Inner circle that the play/pause button sits on */ /* Play / Pause button icons */ /* Hitbox for play/pause button */ /* Timer countdown text */
+
+},{"react":undefined}],"react-svg-timer":[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -16748,7 +16816,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -16996,77 +17064,4 @@ ReactSvgTimer.propTypes = {
 exports['default'] = ReactSvgTimer;
 module.exports = exports['default'];
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./TimerSVG":278,"moment":1,"rxjs/Rx":11}],278:[function(require,module,exports){
-(function (global){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-var _react = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
-
-var _react2 = _interopRequireDefault(_react);
-
-/* A stateless component */
-
-var TimerSVG = function TimerSVG(props) {
-  return _react2["default"].createElement(
-    "svg",
-    { version: "1.1",
-      baseProfile: "tiny",
-      xmlns: "http://www.w3.org/2000/svg",
-      width: "100%", height: "100%",
-      viewBox: "0 0 140 175"
-    },
-    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "60.75", fill: props.outerColour }),
-    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "59.75", fill: props.countdownColour }),
-    _react2["default"].createElement("path", { d: props.draw, fill: props.outerColour }),
-    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "48", fill: props.innerColour, stroke: props.outerColour }),
-    _react2["default"].createElement(
-      "g",
-      { id: "playButton", opacity: props.timerIsRunning ? 0 : 1 },
-      _react2["default"].createElement("path", { d: "M 55 50 L 55 91 L 95 69 L 55 50", fill: props.outerColour })
-    ),
-    _react2["default"].createElement(
-      "g",
-      { id: "pauseButton", opacity: props.timerIsRunning ? 1 : 0 },
-      _react2["default"].createElement("rect", { x: "53", y: "53", height: "36", width: "13", rx: "0", ry: "0", fill: props.outerColour }),
-      _react2["default"].createElement("rect", { x: "74", y: "53", height: "36", width: "13", rx: "0", ry: "0", fill: props.outerColour })
-    ),
-    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "48", opacity: "0", onClick: props.clickStart }),
-    props.displayCountdown ? _react2["default"].createElement(
-      "text",
-      { x: "70", y: "165", textAnchor: "middle", style: { fill: "#333", fontSize: "28px" } },
-      props.timerText
-    ) : null
-  );
-};
-
-TimerSVG.propTypes = {
-  outerColour: _react2["default"].PropTypes.string,
-  innerColour: _react2["default"].PropTypes.string,
-  countdownColour: _react2["default"].PropTypes.string,
-  displayCountdown: _react2["default"].PropTypes.bool,
-  timerIsRunning: _react2["default"].PropTypes.bool,
-  timerText: _react2["default"].PropTypes.string,
-  draw: _react2["default"].PropTypes.string,
-  clickStart: _react2["default"].PropTypes.func
-};
-TimerSVG.defaultProps = {
-  outerColour: '#333',
-  innerColour: '#fff',
-  countdownColour: '#00ffa8',
-  displayCountdown: true
-};
-
-exports["default"] = TimerSVG;
-module.exports = exports["default"];
-/* Outer circle */ /* Countdown circle */ /* The black circle that covers the colour as the timer counts down */ /* Inner circle that the play/pause button sits on */ /* Play / Pause button icons */ /* Hitbox for play/pause button */ /* Timer countdown text */
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}]},{},[277])(277)
-});
+},{"./TimerSVG":277,"moment":1,"react":undefined,"rxjs/Rx":11}]},{},[]);
