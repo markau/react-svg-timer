@@ -15,6 +15,8 @@
   "dependencies": {
     "classnames": "^2.1.2",
     "moment": "^2.13.0",
+    "react-color": "^2.3.4",
+    "reactcss": "^1.0.9",
     "rxjs": "5.0.0-beta.6"
   },
   "devDependencies": {
