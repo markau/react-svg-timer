@@ -16,14 +16,28 @@ class App extends React.Component {
 			resetRequested: false,
 			timerisComplete: false,
 			displayCountdown: true,
-			displayColorPicker: false,
 			showMilliseconds: false,
-		    color: {
-		      r: '112',
-		      g: '230',
-		      b: '80',
-		      a: '1',
-		    },
+			displayCountdownColorPicker: false,
+			displayInnerColorPicker: false,
+			displayOuterColorPicker: false,
+	    countdownColor: {
+	      r: '65',
+	      g: '182',
+	      b: '224',
+	      a: '1',
+	    },
+			innerColor: {
+				r: '255',
+				g: '255',
+				b: '255',
+	      a: '1',
+	    },
+			outerColor: {
+				r: '40',
+				g: '40',
+				b: '40',
+	      a: '1',
+	    },
 
 		};
 
@@ -34,28 +48,68 @@ class App extends React.Component {
 		this.onResetRequest = this.onResetRequest.bind(this);
 		this.optionTimerText = this.optionTimerText.bind(this);
 		this.optionLogCount = this.optionLogCount.bind(this);
-		this.handleClick = this.handleClick.bind(this);
-		this.handleClose = this.handleClose.bind(this);
-		this.handleChange = this.handleChange.bind(this);
+
+		this.handleCountdownColorClick = this.handleCountdownColorClick.bind(this);
+		this.handleCountdownColorClose = this.handleCountdownColorClose.bind(this);
+		this.handleCountdownColorChange = this.handleCountdownColorChange.bind(this);
+
+		this.handleInnerColorClick = this.handleInnerColorClick.bind(this);
+		this.handleInnerColorClose = this.handleInnerColorClose.bind(this);
+		this.handleInnerColorChange = this.handleInnerColorChange.bind(this);
+
+		this.handleOuterColorClick = this.handleOuterColorClick.bind(this);
+		this.handleOuterColorClose = this.handleOuterColorClose.bind(this);
+		this.handleOuterColorChange = this.handleOuterColorChange.bind(this);
 	};
 
-	handleClick() {
+	handleCountdownColorClick() {
     this.setState({
-			displayColorPicker: !this.state.displayColorPicker
+			displayCountdownColorPicker: !this.state.displayCountdownColorPicker
+		});
+  }
+  handleCountdownColorClose() {
+    this.setState({
+			displayCountdownColorPicker: false
+		});
+  }
+  handleCountdownColorChange(color) {
+    this.setState({
+			countdownColor: color.rgb
 		});
   }
 
-  handleClose() {
-    this.setState({
-			displayColorPicker: false
+	handleInnerColorClick() {
+		this.setState({
+			displayInnerColorPicker: !this.state.displayInnerColorPicker
 		});
-  }
+	}
+	handleInnerColorClose() {
+		this.setState({
+			displayInnerColorPicker: false
+		});
+	}
+	handleInnerColorChange(color) {
+		this.setState({
+			innerColor: color.rgb
+		});
+	}
 
-  handleChange(color) {
-    this.setState({
-			color: color.rgb
+	handleOuterColorClick() {
+		this.setState({
+			displayOuterColorPicker: !this.state.displayOuterColorPicker
 		});
-  }
+	}
+	handleOuterColorClose() {
+		this.setState({
+			displayOuterColorPicker: false
+		});
+	}
+	handleOuterColorChange(color) {
+		this.setState({
+			outerColor: color.rgb
+		});
+	}
+
 
   onComplete(status) {
     this.setState({
@@ -99,11 +153,23 @@ class App extends React.Component {
 
 		const styles = reactCSS({
 			'default': {
-				color: {
+				countdownColor: {
 					width: '36px',
 					height: '14px',
 					borderRadius: '2px',
-					background: `rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`,
+					background: `rgba(${ this.state.countdownColor.r }, ${ this.state.countdownColor.g }, ${ this.state.countdownColor.b }, ${ this.state.countdownColor.a })`,
+				},
+				outerColor: {
+					width: '36px',
+					height: '14px',
+					borderRadius: '2px',
+					background: `rgba(${ this.state.outerColor.r }, ${ this.state.outerColor.g }, ${ this.state.outerColor.b }, ${ this.state.outerColor.a })`,
+				},
+				innerColor: {
+					width: '36px',
+					height: '14px',
+					borderRadius: '2px',
+					background: `rgba(${ this.state.innerColor.r }, ${ this.state.innerColor.g }, ${ this.state.innerColor.b }, ${ this.state.innerColor.a })`,
 				},
 				swatch: {
 					padding: '5px',
@@ -139,14 +205,36 @@ class App extends React.Component {
 			<div className="timerContainer">
 
 				<div style={styles.formElement}>
-					<div style={ styles.swatch } onClick={ this.handleClick }>
-						<div style={ styles.color } />
+					<div style={ styles.swatch } onClick={ this.handleCountdownColorClick }>
+						<div style={ styles.countdownColor } />
 					</div>
-					{ this.state.displayColorPicker ? <div style={ styles.popover }>
-						<div style={ styles.cover } onClick={ this.handleClose }/>
-						<SketchPicker color={ this.state.color } onChange={ this.handleChange } />
+					{ this.state.displayCountdownColorPicker ? <div style={ styles.popover }>
+						<div style={ styles.cover } onClick={ this.handleCountdownColorClose }/>
+						<SketchPicker color={ this.state.countdownColor } onChange={ this.handleCountdownColorChange } />
 					</div> : null }
-					Timer colour
+					Countdown color
+				</div>
+
+				<div style={styles.formElement}>
+					<div style={ styles.swatch } onClick={ this.handleOuterColorClick }>
+						<div style={ styles.outerColor } />
+					</div>
+					{ this.state.displayOuterColorPicker ? <div style={ styles.popover }>
+						<div style={ styles.cover } onClick={ this.handleOuterColorClose }/>
+						<SketchPicker color={ this.state.outerColor } onChange={ this.handleOuterColorChange } />
+					</div> : null }
+					Outer color
+				</div>
+
+				<div style={styles.formElement}>
+					<div style={ styles.swatch } onClick={ this.handleInnerColorClick }>
+						<div style={ styles.innerColor } />
+					</div>
+					{ this.state.displayInnerColorPicker ? <div style={ styles.popover }>
+						<div style={ styles.cover } onClick={ this.handleInnerColorClose }/>
+						<SketchPicker color={ this.state.innerColor } onChange={ this.handleInnerColorChange } />
+					</div> : null }
+					Inner color
 				</div>
 
 				<div style={styles.formElement}>
@@ -163,7 +251,9 @@ class App extends React.Component {
 
 				<ReactSvgTimer
 					timerCount={6}
-					countdownColour={`rgba(${ this.state.color.r }, ${ this.state.color.g }, ${ this.state.color.b }, ${ this.state.color.a })`}
+					countdownColor={`rgba(${ this.state.countdownColor.r }, ${ this.state.countdownColor.g }, ${ this.state.countdownColor.b }, ${ this.state.countdownColor.a })`}
+					innerColor={`rgba(${ this.state.innerColor.r }, ${ this.state.innerColor.g }, ${ this.state.innerColor.b }, ${ this.state.innerColor.a })`}
+					outerColor={`rgba(${ this.state.outerColor.r }, ${ this.state.outerColor.g }, ${ this.state.outerColor.b }, ${ this.state.outerColor.a })`}
 					resetTimer={this.onReset}
 					completeTimer={this.onComplete}
 					resetTimerRequested={this.state.resetRequested}

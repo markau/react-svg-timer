@@ -125,7 +125,7 @@ class ReactSvgTimer extends React.Component {
               // the callback prop.
               if ((this.timerDuration > this.goalTimeMillis) && !this.timerIsComplete) {
                 this.props.completeTimer(true);
-                // Ensure any remaining sliver of timer colour is removed
+                // Ensure any remaining sliver of timer Color is removed
                 this.update(359.99);
               }
 
@@ -196,9 +196,9 @@ class ReactSvgTimer extends React.Component {
         <TimerSVG
           timerText={this.timerText()}
           draw={this.state.draw}
-          outerColour={this.props.outerColour}
-          innerColour={this.props.innerColour}
-          countdownColour={this.props.countdownColour}
+          outerColor={this.props.outerColor}
+          innerColor={this.props.innerColor}
+          countdownColor={this.props.countdownColor}
           timerIsRunning={this.state.timerIsRunning}
           displayCountdown={this.props.displayCountdown}
           clickStart={this.toggleStart}
@@ -210,9 +210,9 @@ class ReactSvgTimer extends React.Component {
 
 ReactSvgTimer.propTypes = {
   timerCount: PropTypes.number.isRequired,
-  outerColour: PropTypes.string,
-  innerColour: PropTypes.string,
-  countdownColour: PropTypes.string,
+  outerColor: PropTypes.string,
+  innerColor: PropTypes.string,
+  countdownColor: PropTypes.string,
   resetTimerRequested: PropTypes.bool,
   displayCountdown: PropTypes.bool,
   resetTimer: PropTypes.func,
