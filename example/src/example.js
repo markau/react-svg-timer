@@ -1,6 +1,6 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactSvgTimer = require('react-svg-timer');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactSvgTimer from 'react-svg-timer';
 import reactCSS from 'reactcss'
 import { SketchPicker } from 'react-color'
 
