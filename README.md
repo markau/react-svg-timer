@@ -1,6 +1,6 @@
 # React SVG Timer
 
-An React component to provide an SVG-based timer button with visual feedback of elapsed time.
+A React component to provide an SVG-based timer button with visual feedback of elapsed time.
 
 This is an improved implementation of my previous [Angular 1 directive](https://github.com/markau/angular-svg-timer), the SVG aspect of which is based on [this fiddle](https://jsfiddle.net/prafuitu/xRmGV/).
 
@@ -57,12 +57,13 @@ this.timer = 0;
 
 this.state = {
   resetRequested: false,
-  timerisComplete: false,
+  timerIsComplete: false,
+	logMilliseconds: true,
 };
 
 onComplete(status) {
   this.setState({
-    timerisComplete: status
+    timerIsComplete: status
   });
 }
 
@@ -74,7 +75,7 @@ onReset() {
 
 timerValue(value) {
   this.timer = value;
-  if (this.state.showMilliseconds) {
+  if (this.state.logMilliseconds) {
     console.log(value);
   }
 }
