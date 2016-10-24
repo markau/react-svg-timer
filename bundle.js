@@ -16754,34 +16754,34 @@ var TimerSVG = function TimerSVG(props) {
       width: "100%", height: "100%",
       viewBox: "0 0 140 175"
     },
-    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "60.75", fill: props.outerColour }),
-    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "59.75", fill: props.countdownColour }),
-    _react2["default"].createElement("path", { d: props.draw, fill: props.outerColour }),
-    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "48", fill: props.innerColour, stroke: props.outerColour }),
+    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "60.75", fill: props.outerColor }),
+    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "59.75", fill: props.countdownColor }),
+    _react2["default"].createElement("path", { d: props.draw, fill: props.outerColor }),
+    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "48", fill: props.innerColor, stroke: props.outerColor }),
     _react2["default"].createElement(
       "g",
       { id: "playButton", opacity: props.timerIsRunning ? 0 : 1 },
-      _react2["default"].createElement("path", { d: "M 55 50 L 55 91 L 95 69 L 55 50", fill: props.outerColour })
+      _react2["default"].createElement("path", { d: "M 55 50 L 55 91 L 95 69 L 55 50", fill: props.outerColor })
     ),
     _react2["default"].createElement(
       "g",
       { id: "pauseButton", opacity: props.timerIsRunning ? 1 : 0 },
-      _react2["default"].createElement("rect", { x: "53", y: "53", height: "36", width: "13", rx: "0", ry: "0", fill: props.outerColour }),
-      _react2["default"].createElement("rect", { x: "74", y: "53", height: "36", width: "13", rx: "0", ry: "0", fill: props.outerColour })
+      _react2["default"].createElement("rect", { x: "53", y: "53", height: "36", width: "13", rx: "0", ry: "0", fill: props.outerColor }),
+      _react2["default"].createElement("rect", { x: "74", y: "53", height: "36", width: "13", rx: "0", ry: "0", fill: props.outerColor })
     ),
     _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "48", opacity: "0", onClick: props.clickStart }),
     props.displayCountdown ? _react2["default"].createElement(
       "text",
-      { x: "70", y: "165", textAnchor: "middle", style: { fill: "#333", fontSize: "28px" } },
+      { x: "70", y: "165", textAnchor: "middle", style: { fill: props.countdownColor, fontSize: "28px" } },
       props.timerText
     ) : null
   );
 };
 
 TimerSVG.propTypes = {
-  outerColour: _react2["default"].PropTypes.string,
-  innerColour: _react2["default"].PropTypes.string,
-  countdownColour: _react2["default"].PropTypes.string,
+  outerColor: _react2["default"].PropTypes.string,
+  innerColor: _react2["default"].PropTypes.string,
+  countdownColor: _react2["default"].PropTypes.string,
   displayCountdown: _react2["default"].PropTypes.bool,
   timerIsRunning: _react2["default"].PropTypes.bool,
   timerText: _react2["default"].PropTypes.string,
@@ -16789,15 +16789,15 @@ TimerSVG.propTypes = {
   clickStart: _react2["default"].PropTypes.func
 };
 TimerSVG.defaultProps = {
-  outerColour: '#333',
-  innerColour: '#fff',
-  countdownColour: '#00ffa8',
+  outerColor: '#333',
+  innerColor: '#fff',
+  countdownColor: '#00ffa8',
   displayCountdown: true
 };
 
 exports["default"] = TimerSVG;
 module.exports = exports["default"];
-/* Outer circle */ /* Countdown circle */ /* The black circle that covers the colour as the timer counts down */ /* Inner circle that the play/pause button sits on */ /* Play / Pause button icons */ /* Hitbox for play/pause button */ /* Timer countdown text */
+/* Outer circle */ /* Countdown circle */ /* The black circle that covers the Color as the timer counts down */ /* Inner circle that the play/pause button sits on */ /* Play / Pause button icons */ /* Hitbox for play/pause button */ /* Timer countdown text */
 
 },{"react":undefined}],"react-svg-timer":[function(require,module,exports){
 'use strict';
@@ -16959,7 +16959,7 @@ var ReactSvgTimer = (function (_React$Component) {
         // the callback prop.
         if (_this2.timerDuration > _this2.goalTimeMillis && !_this2.timerIsComplete) {
           _this2.props.completeTimer(true);
-          // Ensure any remaining sliver of timer colour is removed
+          // Ensure any remaining sliver of timer Color is removed
           _this2.update(359.99);
         }
 
@@ -17035,9 +17035,9 @@ var ReactSvgTimer = (function (_React$Component) {
         _react2['default'].createElement(_TimerSVG2['default'], {
           timerText: this.timerText(),
           draw: this.state.draw,
-          outerColour: this.props.outerColour,
-          innerColour: this.props.innerColour,
-          countdownColour: this.props.countdownColour,
+          outerColor: this.props.outerColor,
+          innerColor: this.props.innerColor,
+          countdownColor: this.props.countdownColor,
           timerIsRunning: this.state.timerIsRunning,
           displayCountdown: this.props.displayCountdown,
           clickStart: this.toggleStart
@@ -17051,9 +17051,9 @@ var ReactSvgTimer = (function (_React$Component) {
 
 ReactSvgTimer.propTypes = {
   timerCount: _react.PropTypes.number.isRequired,
-  outerColour: _react.PropTypes.string,
-  innerColour: _react.PropTypes.string,
-  countdownColour: _react.PropTypes.string,
+  outerColor: _react.PropTypes.string,
+  innerColor: _react.PropTypes.string,
+  countdownColor: _react.PropTypes.string,
   resetTimerRequested: _react.PropTypes.bool,
   displayCountdown: _react.PropTypes.bool,
   resetTimer: _react.PropTypes.func,
