@@ -259,7 +259,7 @@ var App = (function (_React$Component) {
 
 			return _react2['default'].createElement(
 				'div',
-				null,
+				{ className: 'columnsContainer' },
 				_react2['default'].createElement(
 					'div',
 					{ className: 'timerContainer' },
