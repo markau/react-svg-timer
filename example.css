@@ -67,12 +67,12 @@ header {
 /* MEDIA QUERIES */
 @media screen and (min-width: 47.5em) {
   .timerContainer {
-    margin-right: 19.5em;
+    margin-right: 21em;
   }
   .controlsContainer {
     position: absolute;
     top: 0;
     right: 0;
-    width: 18.75em;
+    width: 20em;
   }
 }

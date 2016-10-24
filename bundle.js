@@ -16769,7 +16769,7 @@ var TimerSVG = function TimerSVG(props) {
       _react2["default"].createElement("rect", { x: "53", y: "53", height: "36", width: "13", rx: "0", ry: "0", fill: props.outerColor }),
       _react2["default"].createElement("rect", { x: "74", y: "53", height: "36", width: "13", rx: "0", ry: "0", fill: props.outerColor })
     ),
-    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "48", opacity: "0", onClick: props.clickStart }),
+    _react2["default"].createElement("circle", { cx: "70", cy: "70", r: "48", opacity: "0", style: { cursor: "pointer", WebkitTapHighlightColor: "rgba(0,0,0,0)" }, onClick: props.clickStart }),
     props.displayCountdown ? _react2["default"].createElement(
       "text",
       { x: "70", y: "165", textAnchor: "middle", style: { fill: props.countdownColor, fontSize: "28px" } },
