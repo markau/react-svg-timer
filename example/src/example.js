@@ -209,7 +209,7 @@ class App extends React.Component {
 
 		return (
 
-			<div>
+			<div className="columnsContainer">
 				<div className="timerContainer">
 
 					<ReactSvgTimer
