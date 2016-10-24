@@ -192,7 +192,7 @@ class ReactSvgTimer extends React.Component {
   render() {
     // The SVG is deterministic, so split out into a stateless component
     return (
-      <div style={{ cursor: "pointer", userSelect: "none", WebkitUserSelect: "none" }}>
+      <div style={{ userSelect: "none", WebkitUserSelect: "none" }}>
         <TimerSVG
           timerText={this.timerText()}
           draw={this.state.draw}
