@@ -32,7 +32,7 @@ const TimerSVG = (props) =>
         </g>
 
         {/* Hitbox for play/pause button */}
-        <circle cx="70" cy="70" r="48" opacity="0" onClick={props.clickStart} />
+        <circle cx="70" cy="70" r="48" opacity="0" style={{ cursor: "pointer", WebkitTapHighlightColor: "rgba(0,0,0,0)" }} onClick={props.clickStart} />
 
         {/* Timer countdown text */}
         { props.displayCountdown ?
