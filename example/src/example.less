@@ -23,7 +23,7 @@ a:hover {
 .container {
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 720px;
+	max-width: 807px;
 	padding: 1em;
 }
 
@@ -56,9 +56,31 @@ label {
 	color: #999;
 }
 
+
 .timerContainer {
-	padding: 20px;
-	width: 500px;
-	margin: 0 auto;
-	text-align: center;
+    float: left;
+		margin: 0 auto;
+		margin-top: 20px;
+		width: 50%;
+		max-width: 400px;
+}
+.controlsContainer {
+    float: right;
+    width: 50%;
+		max-width: 350px;
+		margin: 0 auto;
+		margin-top: 20px;
+		padding: 15px 15px 15px 25px;
+}
+
+@media screen and (max-width: 807px) {
+    .timerContainer,
+    .controlsContainer {
+			  margin-top: 20px;
+        float: none;
+        width: 100%;
+    }
+		.controlsContainer {
+			  margin-top: 0px;
+    }
 }

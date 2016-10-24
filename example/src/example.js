@@ -197,70 +197,88 @@ class App extends React.Component {
 				},
 				resetButton: {
 					padding: 10,
+					width: '90%',
+				},
+				heading: {
+					padding: 5,
+					paddingLeft: 15,
+					fontSize: 22,
 				},
 			},
 		});
 
 		return (
-			<div className="timerContainer">
 
-				<div style={styles.formElement}>
-					<div style={ styles.swatch } onClick={ this.handleCountdownColorClick }>
-						<div style={ styles.countdownColor } />
+			<div>
+				<div className="timerContainer">
+
+					<ReactSvgTimer
+						timerCount={6}
+						countdownColor={`rgba(${ this.state.countdownColor.r }, ${ this.state.countdownColor.g }, ${ this.state.countdownColor.b }, ${ this.state.countdownColor.a })`}
+						innerColor={`rgba(${ this.state.innerColor.r }, ${ this.state.innerColor.g }, ${ this.state.innerColor.b }, ${ this.state.innerColor.a })`}
+						outerColor={`rgba(${ this.state.outerColor.r }, ${ this.state.outerColor.g }, ${ this.state.outerColor.b }, ${ this.state.outerColor.a })`}
+						resetTimer={this.onReset}
+						completeTimer={this.onComplete}
+						resetTimerRequested={this.state.resetRequested}
+						timerDuration={this.timerValue}
+						displayCountdown={this.state.displayCountdown}
+					/>
+				</div>
+
+				<div className="controlsContainer">
+
+					<p style={styles.heading}>Play with some props:</p>
+
+					<div style={styles.formElement}>
+						<button style={styles.resetButton} onClick={this.onResetRequest}>Reset timer</button>
 					</div>
-					{ this.state.displayCountdownColorPicker ? <div style={ styles.popover }>
-						<div style={ styles.cover } onClick={ this.handleCountdownColorClose }/>
-						<SketchPicker color={ this.state.countdownColor } onChange={ this.handleCountdownColorChange } />
-					</div> : null }
-					Countdown color
-				</div>
 
-				<div style={styles.formElement}>
-					<div style={ styles.swatch } onClick={ this.handleOuterColorClick }>
-						<div style={ styles.outerColor } />
+					<div style={styles.formElement}>
+						<div style={ styles.swatch } onClick={ this.handleCountdownColorClick }>
+							<div style={ styles.countdownColor } />
+						</div>
+						{ this.state.displayCountdownColorPicker ? <div style={ styles.popover }>
+							<div style={ styles.cover } onClick={ this.handleCountdownColorClose }/>
+							<SketchPicker color={ this.state.countdownColor } onChange={ this.handleCountdownColorChange } />
+						</div> : null }
+						Countdown color
 					</div>
-					{ this.state.displayOuterColorPicker ? <div style={ styles.popover }>
-						<div style={ styles.cover } onClick={ this.handleOuterColorClose }/>
-						<SketchPicker color={ this.state.outerColor } onChange={ this.handleOuterColorChange } />
-					</div> : null }
-					Outer color
-				</div>
 
-				<div style={styles.formElement}>
-					<div style={ styles.swatch } onClick={ this.handleInnerColorClick }>
-						<div style={ styles.innerColor } />
+					<div style={styles.formElement}>
+						<div style={ styles.swatch } onClick={ this.handleOuterColorClick }>
+							<div style={ styles.outerColor } />
+						</div>
+						{ this.state.displayOuterColorPicker ? <div style={ styles.popover }>
+							<div style={ styles.cover } onClick={ this.handleOuterColorClose }/>
+							<SketchPicker color={ this.state.outerColor } onChange={ this.handleOuterColorChange } />
+						</div> : null }
+						Outer color
 					</div>
-					{ this.state.displayInnerColorPicker ? <div style={ styles.popover }>
-						<div style={ styles.cover } onClick={ this.handleInnerColorClose }/>
-						<SketchPicker color={ this.state.innerColor } onChange={ this.handleInnerColorChange } />
-					</div> : null }
-					Inner color
+
+					<div style={styles.formElement}>
+						<div style={ styles.swatch } onClick={ this.handleInnerColorClick }>
+							<div style={ styles.innerColor } />
+						</div>
+						{ this.state.displayInnerColorPicker ? <div style={ styles.popover }>
+							<div style={ styles.cover } onClick={ this.handleInnerColorClose }/>
+							<SketchPicker color={ this.state.innerColor } onChange={ this.handleInnerColorChange } />
+						</div> : null }
+						Inner color
+					</div>
+
+					<div style={styles.formElement}>
+						<input defaultChecked={this.state.displayCountdown} onClick={this.optionTimerText} type="checkbox" />
+						Show countdown
+					</div>
+					<div style={styles.formElement}>
+						<input defaultChecked={this.state.showMilliseconds} onClick={this.optionLogCount} type="checkbox" />
+						Log elapsed milliseconds to console
+					</div>
+
 				</div>
 
-				<div style={styles.formElement}>
-					<input defaultChecked={this.state.displayCountdown} onClick={this.optionTimerText} type="checkbox" />
-					Show countdown
-				</div>
-				<div style={styles.formElement}>
-					<input defaultChecked={this.state.showMilliseconds} onClick={this.optionLogCount} type="checkbox" />
-					Log elapsed milliseconds to console
-				</div>
-				<div style={styles.formElement}>
-					<button style={styles.resetButton} onClick={this.onResetRequest}>Reset timer</button>
 				</div>
 
-				<ReactSvgTimer
-					timerCount={6}
-					countdownColor={`rgba(${ this.state.countdownColor.r }, ${ this.state.countdownColor.g }, ${ this.state.countdownColor.b }, ${ this.state.countdownColor.a })`}
-					innerColor={`rgba(${ this.state.innerColor.r }, ${ this.state.innerColor.g }, ${ this.state.innerColor.b }, ${ this.state.innerColor.a })`}
-					outerColor={`rgba(${ this.state.outerColor.r }, ${ this.state.outerColor.g }, ${ this.state.outerColor.b }, ${ this.state.outerColor.a })`}
-					resetTimer={this.onReset}
-					completeTimer={this.onComplete}
-					resetTimerRequested={this.state.resetRequested}
-					timerDuration={this.timerValue}
-					displayCountdown={this.state.displayCountdown}
-				/>
-			</div>
 		);
 	}
 };
