@@ -17031,7 +17031,7 @@ var ReactSvgTimer = (function (_React$Component) {
       // The SVG is deterministic, so split out into a stateless component
       return _react2['default'].createElement(
         'div',
-        { style: { cursor: "pointer", userSelect: "none", WebkitUserSelect: "none" } },
+        { style: { userSelect: "none", WebkitUserSelect: "none" } },
         _react2['default'].createElement(_TimerSVG2['default'], {
           timerText: this.timerText(),
           draw: this.state.draw,
