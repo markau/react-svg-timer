@@ -109,6 +109,12 @@ render () {
 
 The optional props are designed to provide flexibility for implementation. You can use the timer as a discrete component, and just listen for the `timerComplete` callback. Alternatively, for example, you could choose to hide the numerical display countdown with `displayCountdown={false}`, and use the `timerDuration` callback to provide your own numerical countdown.
 
+## Production build
+
+`npm run build`
+
+For Windows, you will need to ensure NODE_ENV works [see here](https://stackoverflow.com/questions/11928013/node-env-is-not-recognized-as-an-internal-or-external-command-operable-comman).
+
 ## License
 
 MIT License.
