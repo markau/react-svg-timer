@@ -110,7 +110,9 @@ export default class ReactSvgTimer extends React.Component<Props, State> {
       this.timerObservable.unsubscribe();
     }
     // call the callback function in the parent component to reset state
-    this.props.completeTimer(false);
+    if (this.props.completeTimer) {
+      this.props.completeTimer(false);
+    }
   }
 
   public toggleStart(): void {
@@ -165,13 +167,17 @@ export default class ReactSvgTimer extends React.Component<Props, State> {
       // if the timer has completed, let the parent component know via
       // the callback prop.
       if (this.timerDuration > this.goalTimeMillis) {
-        this.props.completeTimer(true);
+        if (this.props.completeTimer) {
+          this.props.completeTimer(true);
+        }
         // ensure any remaining sliver of timer Color is removed
         this.update(359.99);
       }
 
       // inform the parent component of the current timer duration
-      this.props.timerDuration(this.timerDuration);
+      if (this.props.timerDuration) {
+        this.props.timerDuration(this.timerDuration);
+      }
     });
   }
 
