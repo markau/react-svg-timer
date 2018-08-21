@@ -13,12 +13,12 @@ import TimerSVG from "./TimerSVG";
 
 export type Props = {
   completeTimer?: (param: boolean) => void;
-  countdownColor: string;
-  displayCountdown: boolean;
-  innerColor: string;
-  outerColor: string;
-  resetTimer: () => void;
-  resetTimerRequested: boolean;
+  countdownColor?: string;
+  displayCountdown?: boolean;
+  innerColor?: string;
+  outerColor?: string;
+  resetTimer?: () => void;
+  resetTimerRequested?: boolean;
   timerCount: number;
   timerDuration?: (param: number) => void;
 };
@@ -85,7 +85,9 @@ export default class ReactSvgTimer extends React.Component<Props, State> {
       if (this.props.resetTimerRequested) {
         this.reset();
         // call callback function in parent component
-        this.props.resetTimer();
+        if (this.props.resetTimer) {
+          this.props.resetTimer();
+        }
       }
     });
 
@@ -251,17 +253,18 @@ export default class ReactSvgTimer extends React.Component<Props, State> {
   }
 
   public render(): JSX.Element {
+    const {outerColor, innerColor, countdownColor, displayCountdown} = this.props;
     // the SVG is deterministic, so is split out into a stateless component
     return (
       <div style={{ userSelect: "none", WebkitUserSelect: "none" }}>
         <TimerSVG
           timerText={this.timerText()}
           draw={this.state.draw}
-          outerColor={this.props.outerColor}
-          innerColor={this.props.innerColor}
-          countdownColor={this.props.countdownColor}
+          outerColor={outerColor ? outerColor : "#282828"}
+          innerColor={innerColor ? innerColor : "#ffffff"}
+          countdownColor={countdownColor ? countdownColor : "#41b6e0"}
           timerIsRunning={this.state.timerIsRunning}
-          displayCountdown={this.props.displayCountdown}
+          displayCountdown={displayCountdown ? displayCountdown : true}
           clickStart={this.toggleStart}
         />
       </div>
