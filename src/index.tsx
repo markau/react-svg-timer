@@ -12,7 +12,7 @@ import moment from "moment"; // note rollup config change - https://stackoverflo
 import TimerSVG from "./TimerSVG";
 
 export type Props = {
-  completeTimer: (param: boolean) => void;
+  completeTimer?: (param: boolean) => void;
   countdownColor: string;
   displayCountdown: boolean;
   innerColor: string;
@@ -20,7 +20,7 @@ export type Props = {
   resetTimer: () => void;
   resetTimerRequested: boolean;
   timerCount: number;
-  timerDuration: (param: number) => void;
+  timerDuration?: (param: number) => void;
 };
 
 export type State = {
