@@ -7,7 +7,7 @@ A React component to provide an SVG-based timer button with visual feedback of e
 This is an improved iteration of previous projects:
 
 * [Angular 1 directive](https://github.com/markau/angular-svg-timer)
-* [Older React version](https://github.com/markau/react-svg-timer#v1)
+* [Previous React version](https://github.com/markau/react-svg-timer#v1)
 
 All have their foundation in [this fiddle](https://jsfiddle.net/prafuitu/xRmGV/).
 
@@ -17,8 +17,7 @@ Demo: [markau.github.io/react-svg-timer](http://markau.github.io/react-svg-timer
 
 ## Installation
 
-`yarn add react-svg-timer`
-`npm install react-svg-timer`
+`yarn add react-svg-timer` or `npm install react-svg-timer`
 
 ## Usage
 
