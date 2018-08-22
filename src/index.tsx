@@ -2,8 +2,6 @@
  * @class ReactSvgTimer
  */
 
-// https://www.npmjs.com/package/create-react-library
-
 import * as React from "react";
 import { interval } from "rxjs";
 import moment from "moment"; // note rollup config change - https://stackoverflow.com/a/47007576/3003102
@@ -29,7 +27,7 @@ export type State = {
 };
 
 export default class ReactSvgTimer extends React.Component<Props, State> {
-  constructor(props: Props) {
+   constructor(props: Props) {
     super(props);
 
     // changes to state variables will cause the browser to re-render
@@ -253,18 +251,24 @@ export default class ReactSvgTimer extends React.Component<Props, State> {
   }
 
   public render(): JSX.Element {
-    const {outerColor, innerColor, countdownColor, displayCountdown} = this.props;
+    // Destructuring props provides an opportunity to set defaults
+    const {
+      outerColor = "#282828",
+      innerColor = "#ffffff",
+      countdownColor = "#41b6e0",
+      displayCountdown = true
+    } = this.props;
     // the SVG is deterministic, so is split out into a stateless component
     return (
       <div style={{ userSelect: "none", WebkitUserSelect: "none" }}>
         <TimerSVG
           timerText={this.timerText()}
           draw={this.state.draw}
-          outerColor={outerColor ? outerColor : "#282828"}
-          innerColor={innerColor ? innerColor : "#ffffff"}
-          countdownColor={countdownColor ? countdownColor : "#41b6e0"}
+          outerColor={outerColor}
+          innerColor={innerColor}
+          countdownColor={countdownColor}
           timerIsRunning={this.state.timerIsRunning}
-          displayCountdown={displayCountdown ? displayCountdown : true}
+          displayCountdown={displayCountdown}
           clickStart={this.toggleStart}
         />
       </div>
