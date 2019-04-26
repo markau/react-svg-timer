@@ -23,13 +23,7 @@ const TimerSVG = props => {
       <path d={draw} fill={outerColor} />
 
       {/* Inner circle that the play/pause button sits on */}
-      <circle
-        cx='70'
-        cy='70'
-        r='48'
-        fill={innerColor}
-        stroke={outerColor}
-      />
+      <circle cx='70' cy='70' r='48' fill={innerColor} stroke={outerColor} />
 
       {/* Play / Pause button icons */}
       <g id='playButton' opacity={timerIsRunning ? 0 : 1}>
@@ -37,24 +31,8 @@ const TimerSVG = props => {
       </g>
 
       <g id='pauseButton' opacity={timerIsRunning ? 1 : 0}>
-        <rect
-          x='53'
-          y='53'
-          height='36'
-          width='13'
-          rx='0'
-          ry='0'
-          fill={outerColor}
-        />
-        <rect
-          x='74'
-          y='53'
-          height='36'
-          width='13'
-          rx='0'
-          ry='0'
-          fill={outerColor}
-        />
+        <rect x='53' y='53' height='36' width='13' rx='0' ry='0' fill={outerColor} />
+        <rect x='74' y='53' height='36' width='13' rx='0' ry='0' fill={outerColor} />
       </g>
 
       {/* Hitbox for play/pause button */}
@@ -69,12 +47,7 @@ const TimerSVG = props => {
 
       {/* Timer countdown text */}
       {displayCountdown ? (
-        <text
-          x='70'
-          y='165'
-          textAnchor='middle'
-          style={{ fill: countdownColor, fontSize: '28px' }}
-        >
+        <text x='70' y='165' textAnchor='middle' style={{ fill: countdownColor, fontSize: '28px' }}>
           {timerText}
         </text>
       ) : null}

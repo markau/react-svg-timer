@@ -49,10 +49,10 @@ const ReactSvgTimer = props => {
     // Moments are used to correct drift from JavaScript's setInterval
     setDuration(elapsedTime + moment(new Date()).diff(moment(startDateMoment)))
     if (duration <= goalTimeMilliseconds) {
-      setDraw(drawCoord((duration * degrees)))
+      setDraw(drawCoord(duration * degrees))
     } else {
       completeTimer(true)
-      setDraw(drawCoord((359.99)))
+      setDraw(drawCoord(359.99))
     }
     // Inform the parent component of the current timer duration
     if (timerDuration) timerDuration(duration)
@@ -66,7 +66,9 @@ const ReactSvgTimer = props => {
     setTimerIsRunning(true)
   }
 
-  const pause = () => { setTimerIsRunning(false) }
+  const pause = () => {
+    setTimerIsRunning(false)
+  }
 
   const reset = () => {
     setTimerIsRunning(false)
@@ -96,7 +98,9 @@ const ReactSvgTimer = props => {
     // This function is not great - complexity is due to counting up once timer goal is reached
     const isTimerPositive = duration > goalTimeMilliseconds
     const getTimerDuration = () => {
-      return moment.duration(isTimerPositive ? (duration - goalTimeMilliseconds) : (goalTimeMilliseconds - duration)).asMilliseconds()
+      return moment
+        .duration(isTimerPositive ? duration - goalTimeMilliseconds : goalTimeMilliseconds - duration)
+        .asMilliseconds()
     }
     let roundedMilliseconds = Math.round(getTimerDuration() / 1000) * 1000
     let prefix = isTimerPositive && roundedMilliseconds > 0 ? '+' : ''
@@ -113,7 +117,7 @@ const ReactSvgTimer = props => {
         countdownColor={countdownColor}
         timerIsRunning={timerIsRunning}
         displayCountdown={displayCountdown}
-        clickStart={() => timerIsRunning ? pause() : start()}
+        clickStart={() => (timerIsRunning ? pause() : start())}
       />
     </div>
   )

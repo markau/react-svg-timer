@@ -9,15 +9,11 @@ const App = () => {
   let [timerisComplete, setTimerisComplete] = useState(false)
   let [displayCountdown, setDisplayCountdown] = useState(true)
   let [showMilliseconds, setShowMilliseconds] = useState(false)
-  // prettier-ignore
   let [displayCountdownColorPicker, setDisplayCountdownColorPicker] = useState(false)
   let [displayInnerColorPicker, setDisplayInnerColorPicker] = useState(false)
   let [displayOuterColorPicker, setDisplayOuterColorPicker] = useState(false)
-  // prettier-ignore
   let [countdownColor, setCountdownColor] = useState({ r: '65', g: '182', b: '224', a: '1' })
-  // prettier-ignore
   let [innerColor, setInnerColor] = useState({ r: '255', g: '255', b: '255', a: '1' })
-  // prettier-ignore
   let [outerColor, setOuterColor] = useState({ r: '40', g: '40', b: '40', a: '1' })
 
   useEffect(() => {
@@ -76,21 +72,18 @@ const App = () => {
         width: '36px',
         height: '14px',
         borderRadius: '2px',
-        // prettier-ignore
         background: `rgba(${countdownColor.r}, ${countdownColor.g}, ${countdownColor.b}, ${countdownColor.a})`
       },
       outerColor: {
         width: '36px',
         height: '14px',
         borderRadius: '2px',
-        // prettier-ignore
         background: `rgba(${outerColor.r}, ${outerColor.g}, ${outerColor.b}, ${outerColor.a})`
       },
       innerColor: {
         width: '36px',
         height: '14px',
         borderRadius: '2px',
-        // prettier-ignore
         background: `rgba(${innerColor.r}, ${innerColor.g}, ${innerColor.b}, ${innerColor.a})`
       },
       swatch: {
@@ -130,15 +123,12 @@ const App = () => {
   })
 
   return (
-    <div className='columnsContainer'>
-      <div className='timerContainer'>
+    <div className="columnsContainer">
+      <div className="timerContainer">
         <ReactSvgTimer
           timerCount={6}
-          // prettier-ignore
           countdownColor={`rgba(${countdownColor.r}, ${countdownColor.g}, ${countdownColor.b}, ${countdownColor.a})`}
-          // prettier-ignore
           innerColor={`rgba(${innerColor.r}, ${innerColor.g}, ${innerColor.b}, ${innerColor.a})`}
-          // prettier-ignore
           outerColor={`rgba(${outerColor.r}, ${outerColor.g}, ${outerColor.b}, ${outerColor.a})`}
           resetTimer={onReset}
           completeTimer={onComplete}
@@ -148,7 +138,7 @@ const App = () => {
         />
       </div>
 
-      <div className='controlsContainer'>
+      <div className="controlsContainer">
         <p style={styles.heading}>Play with some props:</p>
 
         <div style={styles.formElement}>
@@ -164,10 +154,7 @@ const App = () => {
           {displayCountdownColorPicker ? (
             <div style={styles.popover}>
               <div style={styles.cover} onClick={handleCountdownColorClose} />
-              <SketchPicker
-                color={countdownColor}
-                onChange={handleCountdownColorChange}
-              />
+              <SketchPicker color={countdownColor} onChange={handleCountdownColorChange} />
             </div>
           ) : null}
           Countdown color
@@ -180,10 +167,7 @@ const App = () => {
           {displayOuterColorPicker ? (
             <div style={styles.popover}>
               <div style={styles.cover} onClick={handleOuterColorClose} />
-              <SketchPicker
-                color={outerColor}
-                onChange={handleOuterColorChange}
-              />
+              <SketchPicker color={outerColor} onChange={handleOuterColorChange} />
             </div>
           ) : null}
           Outer color
@@ -196,29 +180,18 @@ const App = () => {
           {displayInnerColorPicker ? (
             <div style={styles.popover}>
               <div style={styles.cover} onClick={handleInnerColorClose} />
-              <SketchPicker
-                color={innerColor}
-                onChange={handleInnerColorChange}
-              />
+              <SketchPicker color={innerColor} onChange={handleInnerColorChange} />
             </div>
           ) : null}
           Inner color
         </div>
 
         <div style={styles.formElement}>
-          <input
-            defaultChecked={displayCountdown}
-            onClick={optionTimerText}
-            type='checkbox'
-          />
+          <input defaultChecked={displayCountdown} onClick={optionTimerText} type="checkbox" />
           Show countdown
         </div>
         <div style={styles.formElement}>
-          <input
-            defaultChecked={showMilliseconds}
-            onClick={optionLogCount}
-            type='checkbox'
-          />
+          <input defaultChecked={showMilliseconds} onClick={optionLogCount} type="checkbox" />
           Log elapsed milliseconds to console
         </div>
       </div>
