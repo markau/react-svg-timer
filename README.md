@@ -23,7 +23,7 @@ Demo: [markau.github.io/react-svg-timer](http://markau.github.io/react-svg-timer
 
 The minimum declaration is:
 
-```
+```javascript
 import ReactSvgTimer from 'react-svg-timer';
 
 <ReactSvgTimer timerCount={# seconds}/>
@@ -44,7 +44,7 @@ The component can take additional, optional props:
 
 A more complete implementation could therefore be:
 
-````
+```javascript
 
 // To keep track of the milliseconds elapsed
 let timer = 0
