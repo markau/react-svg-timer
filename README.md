@@ -47,57 +47,47 @@ A more complete implementation could therefore be:
 ````
 
 // To keep track of the milliseconds elapsed
-this.timer = 0;
-
-this.state = {
-  resetRequested: false,
-  timerIsComplete: false,
-	logMilliseconds: true,
-};
+let timer = 0
+let [resetRequested, setResetRequested] = useState(false)
+let [timerIsComplete, setTimerIsComplete] = useState(false)
+let [logMilliseconds, setLogMilliseconds] = useState(true)
 
 onComplete(status) {
-  this.setState({
-    timerIsComplete: status
-  });
+  setTimerIsComplete(status)
 }
 
 onReset() {
-  this.setState({
-    resetRequested: false
-  });
+  setResetRequested(false)
 }
 
 timerValue(value) {
-  this.timer = value;
-  if (this.state.logMilliseconds) {
+  timer = value;
+  if (logMilliseconds) {
     console.log(value);
   }
 }
 
 onResetRequest() {
-  this.setState({
-    resetRequested: true
-  });
-  this.timer = 0;
+  setResetRequested(true)
+  timer = 0;
 }
 
-render () {
-  return (
+return (
 
-    <ReactSvgTimer
-      timerCount={6}
-      countdownColor="#00ffa8"
-      innerColor="#fff"
-      outerColor="#000"
-      resetTimer={this.onReset}
-      completeTimer={this.onComplete}
-      resetTimerRequested={this.state.resetRequested}
-      timerDuration={this.timerValue}
-      displayCountdown={this.state.displayCountdown}
-    />
+  <ReactSvgTimer
+    timerCount={6}
+    countdownColor="#00ffa8"
+    innerColor="#fff"
+    outerColor="#000"
+    resetTimer={onReset}
+    completeTimer={onComplete}
+    resetTimerRequested={resetRequested}
+    timerDuration={timerValue}
+    displayCountdown={displayCountdown}
+  />
 
-  );
-}
+)
+
 
 ````
 
