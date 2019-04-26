@@ -1,7 +1,7 @@
 {
   "name": "react-svg-timer",
-  "version": "1.2.0",
-  "description": "React SVG Timer",
+  "version": "2.1.0",
+  "description": "SVG Timer React component",
   "author": "markau",
   "license": "MIT",
   "repository": "markau/react-svg-timer",
