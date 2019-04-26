@@ -8,11 +8,12 @@ body {
 
 a {
 	color: #08c;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 a:hover {
 	text-decoration: underline;
+	background-color: rgba(0, 136, 204, 0.144);
 }
 
 .container {
