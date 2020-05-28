@@ -11,7 +11,7 @@ interface TimerProps {
   timerText: any;
 }
 
-const TimerSVG = (props: TimerProps) => {
+export const TimerSVG = (props: TimerProps) => {
   // prettier-ignore
   let { clickStart, countdownColor, displayCountdown, draw, innerColor, outerColor, timerIsRunning, timerText } = props
   return (
@@ -85,22 +85,3 @@ const TimerSVG = (props: TimerProps) => {
     </svg>
   );
 };
-
-// TimerSVG.propTypes = {
-//   clickStart: PropTypes.func,
-//   countdownColor: PropTypes.string,
-//   displayCountdown: PropTypes.bool,
-//   draw: PropTypes.string,
-//   innerColor: PropTypes.string,
-//   outerColor: PropTypes.string,
-//   timerIsRunning: PropTypes.bool,
-//   timerText: PropTypes.string,
-// };
-TimerSVG.defaultProps = {
-  outerColor: '#333',
-  innerColor: '#fff',
-  countdownColor: '#00ffa8',
-  displayCountdown: true,
-};
-
-export default TimerSVG;

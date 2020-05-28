@@ -1,20 +1,6 @@
-// import React, { FC, HTMLAttributes, ReactChild } from 'react';
-
-// export interface Props extends HTMLAttributes<HTMLDivElement> {
-//   children?: ReactChild;
-// }
-
-// // Please do not use types off of a default export module or else Storybook Docs will suffer.
-// // see: https://github.com/storybookjs/storybook/issues/9556
-// export const Thing: FC<Props> = ({ children }) => {
-//   return <div>{children || `the snozzberries taste like snozzberries`}</div>;
-// };
-
 import React, { FC, useState, useEffect, useRef } from 'react';
-// import PropTypes from 'prop-types'
 import moment from 'moment';
-// import {unitOfTime} from 'moment';
-import TimerSVG from './TimerSVG';
+import { TimerSVG } from './TimerSVG';
 
 interface TimerProps {
   outerColor?: any;

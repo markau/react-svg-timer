@@ -10,6 +10,6 @@ export default {
 // you consume the story in a test.
 export const Default = (props?: Partial<any>) =>
 <div style={{ width: 400 }}>
-<ReactSvgTimer timerCount={20} />
+<ReactSvgTimer timerCount={5} />
 </div>
 ;
