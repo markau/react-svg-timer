@@ -1,5 +1,6 @@
 import React from 'react';
 import { ReactSvgTimer } from '../src';
+import './styles.css';
 
 export default {
   title: 'Welcome',

@@ -10,11 +10,11 @@
 //   return <div>{children || `the snozzberries taste like snozzberries`}</div>;
 // };
 
-import React, { FC, useState, useEffect, useRef } from 'react'
+import React, { FC, useState, useEffect, useRef } from 'react';
 // import PropTypes from 'prop-types'
 import moment from 'moment';
 // import {unitOfTime} from 'moment';
-import TimerSVG from './TimerSVG'
+import TimerSVG from './TimerSVG';
 
 interface TimerProps {
   outerColor?: any;
@@ -25,113 +25,118 @@ interface TimerProps {
   resetTimerRequested?: any;
   resetTimer?: any;
   timerCount: any;
-  completeTimer?: any
+  completeTimer?: any;
 }
 
 function useInterval(callback: any, runTimer: any) {
   // Thanks Dan Abramov https://overreacted.io/making-setinterval-declarative-with-react-hooks/
-  const savedCallback = useRef<any>()
+  const savedCallback = useRef<any>();
   useEffect(() => {
-    savedCallback.current = callback
-  }, [callback])
+    savedCallback.current = callback;
+  }, [callback]);
   useEffect(() => {
     function tick() {
-      savedCallback.current()
+      savedCallback.current();
     }
     if (runTimer) {
-      let id = setInterval(tick, 1)
-      return () => clearInterval(id)
+      let id = setInterval(tick, 1);
+      return () => clearInterval(id);
     }
-    return undefined
-  }, [runTimer])
+    return undefined;
+  }, [runTimer]);
 }
 
-export const ReactSvgTimer: FC<TimerProps> = (props) => {
+export const ReactSvgTimer: FC<TimerProps> = props => {
   // prettier-ignore
   let { outerColor, innerColor, countdownColor, displayCountdown, timerDuration, resetTimerRequested, resetTimer, timerCount, completeTimer } = props
   // State variables
-  let [draw, setDraw] = useState<string>("")
-  let [timerIsRunning, setTimerIsRunning] = useState(false)
-  let [timerisReset, setTimerisReset] = useState(false)
-  let [counterText, setcounterText] = useState('')
-  let [duration, setDuration] = useState(0)
-  let [elapsedTime, setElapsedTime] = useState(0)
-  let [startDateMoment, setStartDateMoment] = useState<any>(null)
+  let [draw, setDraw] = useState<string>('');
+  let [timerIsRunning, setTimerIsRunning] = useState(false);
+  let [timerisReset, setTimerisReset] = useState(false);
+  let [counterText, setcounterText] = useState('');
+  let [duration, setDuration] = useState(0);
+  let [elapsedTime, setElapsedTime] = useState(0);
+  let [startDateMoment, setStartDateMoment] = useState<any>(null);
   // Instance variables
-  const goalTimeMilliseconds = timerCount * 1000
-  const degrees = 360 / (timerCount * 1000)
+  const goalTimeMilliseconds = timerCount * 1000;
+  const degrees = 360 / (timerCount * 1000);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    setcounterText(getcounterText())
-  })
+    setcounterText(getcounterText());
+  });
 
   useInterval(() => {
     if (resetTimerRequested) {
-      reset()
+      reset();
     }
-  }, resetTimerRequested)
+  }, resetTimerRequested);
 
   useInterval(() => {
     // Moments are used to correct drift from JavaScript's setInterval
-    setDuration(elapsedTime + moment(new Date()).diff(moment(startDateMoment)))
+    setDuration(elapsedTime + moment(new Date()).diff(moment(startDateMoment)));
     if (duration <= goalTimeMilliseconds) {
-      setDraw(drawCoord(duration * degrees))
+      setDraw(drawCoord(duration * degrees));
     } else {
-      completeTimer(true)
-      setDraw(drawCoord(359.99))
+      completeTimer(true);
+      setDraw(drawCoord(359.99));
     }
     // Inform the parent component of the current timer duration
-    if (timerDuration) timerDuration(duration)
-  }, timerIsRunning)
+    if (timerDuration) timerDuration(duration);
+  }, timerIsRunning);
 
   const start = () => {
     if (!timerisReset) {
-      setElapsedTime(duration)
+      setElapsedTime(duration);
     }
-    setStartDateMoment(moment(new Date()))
-    setTimerIsRunning(true)
-  }
+    setStartDateMoment(moment(new Date()));
+    setTimerIsRunning(true);
+  };
 
   const pause = () => {
-    setTimerIsRunning(false)
-  }
+    setTimerIsRunning(false);
+  };
 
   const reset = () => {
-    setTimerIsRunning(false)
-    setTimerisReset(true)
-    setDuration(0)
-    setElapsedTime(0)
-    setDraw(drawCoord(360))
+    setTimerIsRunning(false);
+    setTimerisReset(true);
+    setDuration(0);
+    setElapsedTime(0);
+    setDraw(drawCoord(360));
     // Call the callback functions on the parent component
-    if (completeTimer) completeTimer(false)
-    if (resetTimer) resetTimer()
-  }
+    if (completeTimer) completeTimer(false);
+    if (resetTimer) resetTimer();
+  };
 
   // Wizardry - for which credit must go to the source: https://jsfiddle.net/prafuitu/xRmGV/
   const drawCoord = (degrees: number) => {
-    let radius = 60
-    let radians = (degrees * Math.PI) / 180
-    let offset = 10
-    let rX = radius + offset + Math.sin(radians) * radius
-    let rY = radius + offset - Math.cos(radians) * radius
-    let dir = degrees > 180 ? 1 : 0
+    let radius = 60;
+    let radians = (degrees * Math.PI) / 180;
+    let offset = 10;
+    let rX = radius + offset + Math.sin(radians) * radius;
+    let rY = radius + offset - Math.cos(radians) * radius;
+    let dir = degrees > 180 ? 1 : 0;
     // prettier-ignore
-    let coord = 'M' + (radius + offset) + ',' + (radius + offset) + ' ' + 'L' + (radius + offset) + ',' + offset + ' ' + 'A' + radius + ',' + radius + ' 0 ' + dir + ',1 ' + rX + ',' + rY
-    return coord
-  }
+    let coord = `M${radius + offset},${radius + offset} L${radius + offset},${offset} A${radius},${radius} 0 ${dir},1 ${rX},${rY}`
+    return coord;
+  };
 
   const getcounterText = () => {
     // This function is not great - complexity is due to counting up once timer goal is reached
-    const isTimerPositive = duration > goalTimeMilliseconds
+    const isTimerPositive = duration > goalTimeMilliseconds;
     const getTimerDuration = () => {
       return moment
-        .duration(isTimerPositive ? duration - goalTimeMilliseconds : goalTimeMilliseconds - duration)
-        .asMilliseconds()
-    }
-    let roundedMilliseconds = Math.round(getTimerDuration() / 1000) * 1000
-    let prefix = isTimerPositive && roundedMilliseconds > 0 ? '+' : ''
-    return `${prefix}${moment.utc(roundedMilliseconds).format('mm:ss')}`
-  }
+        .duration(
+          isTimerPositive
+            ? duration - goalTimeMilliseconds
+            : goalTimeMilliseconds - duration
+        )
+        .asMilliseconds();
+    };
+    let roundedMilliseconds = Math.round(getTimerDuration() / 1000) * 1000;
+    let prefix = isTimerPositive && roundedMilliseconds > 0 ? '+' : '';
+    return `${prefix}${moment.utc(roundedMilliseconds).format('mm:ss')}`;
+  };
 
   return (
     <div style={{ userSelect: 'none', WebkitUserSelect: 'none' }}>
@@ -146,13 +151,12 @@ export const ReactSvgTimer: FC<TimerProps> = (props) => {
         clickStart={() => (timerIsRunning ? pause() : start())}
       />
     </div>
-  )
-}
+  );
+};
 
 ReactSvgTimer.defaultProps = {
   outerColor: '#282828',
   innerColor: '#ffffff',
   countdownColor: '#41b6e0',
-  displayCountdown: true
-}
-
+  displayCountdown: true,
+};
