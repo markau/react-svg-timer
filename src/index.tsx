@@ -17,15 +17,15 @@ import moment from 'moment';
 import TimerSVG from './TimerSVG'
 
 interface TimerProps {
-  outerColor: any;
-  innerColor: any;
-  countdownColor: any;
-  displayCountdown: any;
-  timerDuration: any;
-  resetTimerRequested: any;
-  resetTimer: any;
+  outerColor?: any;
+  innerColor?: any;
+  countdownColor?: any;
+  displayCountdown?: any;
+  timerDuration?: any;
+  resetTimerRequested?: any;
+  resetTimer?: any;
   timerCount: any;
-  completeTimer: any
+  completeTimer?: any
 }
 
 function useInterval(callback: any, runTimer: any) {

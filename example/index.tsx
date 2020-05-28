@@ -1,14 +1,14 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Thing } from '../.';
+import { ReactSvgTimer } from '../.';
 
-const App = () => {
+const App = (props) => {
   return (
-    <div>
-      <Thing />
+    <div style={{ width: 400 }}>
+      <ReactSvgTimer {...props} />
     </div>
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App timerCount={20} />, document.getElementById('root'));
