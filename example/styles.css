@@ -34,18 +34,18 @@ h4,
 h5,
 h6 {
   color: #222;
-  font-weight: 700;
+  font-weight: bold;
   margin: 0.5em 0;
 }
 
 h2 {
-	font-weight: 400;
+	font-weight: normal;
 }
 
 label {
   color: #585858;
   font-size: 0.85em;
-  font-weight: 400;
+  font-weight: normal;
   padding: 0.5em;
   text-transform: uppercase;
 }

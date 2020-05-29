@@ -6,6 +6,7 @@ import reactCSS from 'reactcss'
 import { SketchPicker } from 'react-color'
 import { ReactSvgTimer } from '../.';
 import './styles.css';
+import './fonts/fonts.css';
 
 const App = () => {
   // State variables
@@ -119,7 +120,7 @@ const App = () => {
       label: {
         color: '#585858',
         fontSize: '0.85em',
-        fontWeight: 400,
+        fontWeight: 'normal',
         marginLeft: '0.5em',
         textTransform: 'uppercase'
       },
