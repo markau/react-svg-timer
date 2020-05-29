@@ -1,18 +1,3 @@
-// import 'react-app-polyfill/ie11';
-// import * as React from 'react';
-// import * as ReactDOM from 'react-dom';
-// import { ReactSvgTimer } from '../.';
-
-// const App = (props) => {
-//   return (
-//     <div style={{ width: 400 }}>
-//       <ReactSvgTimer {...props} />
-//     </div>
-//   );
-// };
-
-// ReactDOM.render(<App timerCount={20} />, document.getElementById('root'));
-
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -79,10 +64,10 @@ const App = () => {
     setResetRequested(true)
   }
   const optionTimerText = () => {
-    setDisplayCountdown(displayCountdown)
+    setDisplayCountdown(!displayCountdown)
   }
   const optionLogCount = () => {
-    setShowMilliseconds(showMilliseconds)
+    setShowMilliseconds(!showMilliseconds)
   }
 
   const styles = reactCSS({
@@ -205,14 +190,17 @@ const App = () => {
           Inner color
         </div>
 
-        <div style={styles.formElement}>
-          <input defaultChecked={displayCountdown} onClick={optionTimerText} type="checkbox" />
-          Show countdown
-        </div>
-        <div style={styles.formElement}>
-          <input defaultChecked={showMilliseconds} onClick={optionLogCount} type="checkbox" />
-          Log elapsed milliseconds to console
-        </div>
+        {/* <form> */}
+          <div style={styles.formElement}>
+            <input defaultChecked={displayCountdown} onClick={optionTimerText} type="checkbox" aria-labelledby="chk1-label" />
+            <label id="chk1-label">Show countdown</label>
+          </div>
+          <div style={styles.formElement}>
+            <input defaultChecked={showMilliseconds} onClick={optionLogCount} type="checkbox" aria-labelledby="chk2-label" />
+            <label id="chk2-label">Log elapsed milliseconds to console</label>
+          </div>
+        {/* </form> */}
+
       </div>
     </div>
   )
