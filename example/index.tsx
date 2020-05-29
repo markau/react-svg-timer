@@ -21,7 +21,7 @@ const App = () => {
   let [outerColor, setOuterColor] = useState({ r: '40', g: '40', b: '40', a: '1' })
 
   useEffect(() => {
-    if (timerisComplete) console.log('timer complete')
+    if (timerisComplete && showMilliseconds) console.log('timer complete')
   })
 
   const handleCountdownColorClick = () => {
@@ -116,6 +116,13 @@ const App = () => {
         textAlign: 'left',
         margin: '0.4em 0'
       },
+      label: {
+        color: '#585858',
+        fontSize: '0.85em',
+        fontWeight: 'bold',
+        marginLeft: '0.5em',
+        textTransform: 'uppercase'
+      },
       resetButton: {
         padding: 10,
         width: '90%'
@@ -129,7 +136,7 @@ const App = () => {
   })
 
   return (
-    <div className="columnsContainer">
+    <main className="columnsContainer">
       <div className="timerContainer">
         <ReactSvgTimer
           timerCount={6}
@@ -145,7 +152,7 @@ const App = () => {
       </div>
 
       <div className="controlsContainer">
-        <p style={styles.heading}>Play with some props:</p>
+        <h2 style={styles.heading}>Play with some props</h2>
 
         <div style={styles.formElement}>
           <button style={styles.resetButton} onClick={onResetRequest}>
@@ -163,7 +170,7 @@ const App = () => {
               <SketchPicker color={countdownColor} onChange={handleCountdownColorChange} />
             </div>
           ) : null}
-          <label>Countdown color</label>
+          <span style={styles.label}>Countdown color</span>
         </div>
 
         <div style={styles.formElement}>
@@ -176,7 +183,7 @@ const App = () => {
               <SketchPicker color={outerColor} onChange={handleOuterColorChange} />
             </div>
           ) : null}
-          <label>Outer color</label>
+          <span style={styles.label}>Outer color</span>
         </div>
 
         <div style={styles.formElement}>
@@ -189,20 +196,22 @@ const App = () => {
               <SketchPicker color={innerColor} onChange={handleInnerColorChange} />
             </div>
           ) : null}
-          <label>Inner color</label>
+          <span style={styles.label}>Inner color</span>
         </div>
 
-        <div style={styles.formElement}>
-          <input defaultChecked={displayCountdown} onClick={optionTimerText} type="checkbox" aria-labelledby="chk1-label" />
-          <label id="chk1-label">Show countdown</label>
-        </div>
-        <div style={styles.formElement}>
-          <input defaultChecked={showMilliseconds} onClick={optionLogCount} type="checkbox" aria-labelledby="chk2-label" />
-          <label id="chk2-label">Log elapsed milliseconds to console</label>
-        </div>
+        <form>
+          <div style={styles.formElement}>
+            <input defaultChecked={displayCountdown} onClick={optionTimerText} type="checkbox" aria-labelledby="chk1-label" />
+            <label id="chk1-label">Show countdown</label>
+          </div>
+          <div style={styles.formElement}>
+            <input defaultChecked={showMilliseconds} onClick={optionLogCount} type="checkbox" aria-labelledby="chk2-label" />
+            <label id="chk2-label">Log elapsed milliseconds to console</label>
+          </div>
+        </form>
 
       </div>
-    </div>
+    </main>
   )
 }
 
