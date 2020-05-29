@@ -20,6 +20,7 @@ import { useState, useEffect } from 'react'
 import reactCSS from 'reactcss'
 import { SketchPicker } from 'react-color'
 import { ReactSvgTimer } from '../.';
+import './styles.css';
 
 const App = () => {
   // State variables
