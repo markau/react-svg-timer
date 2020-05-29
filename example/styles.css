@@ -33,11 +33,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 label {
-	color: #999;
-	display: inline-block;
+	color: #585858;
 	font-size: 0.85em;
 	font-weight: bold;
-	margin: 1em 0;
+	padding: 0.5em;
 	text-transform: uppercase;
 }
 

@@ -97,7 +97,8 @@ const App = () => {
         boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
         display: 'inline-block',
         cursor: 'pointer',
-        marginRight: '10px'
+        marginRight: '10px',
+        verticalAlign: 'middle'
       },
       popover: {
         position: 'absolute',
@@ -112,7 +113,8 @@ const App = () => {
       },
       formElement: {
         padding: 10,
-        textAlign: 'left'
+        textAlign: 'left',
+        margin: '0.4em 0'
       },
       resetButton: {
         padding: 10,
@@ -161,7 +163,7 @@ const App = () => {
               <SketchPicker color={countdownColor} onChange={handleCountdownColorChange} />
             </div>
           ) : null}
-          Countdown color
+          <label>Countdown color</label>
         </div>
 
         <div style={styles.formElement}>
@@ -174,7 +176,7 @@ const App = () => {
               <SketchPicker color={outerColor} onChange={handleOuterColorChange} />
             </div>
           ) : null}
-          Outer color
+          <label>Outer color</label>
         </div>
 
         <div style={styles.formElement}>
@@ -187,19 +189,17 @@ const App = () => {
               <SketchPicker color={innerColor} onChange={handleInnerColorChange} />
             </div>
           ) : null}
-          Inner color
+          <label>Inner color</label>
         </div>
 
-        {/* <form> */}
-          <div style={styles.formElement}>
-            <input defaultChecked={displayCountdown} onClick={optionTimerText} type="checkbox" aria-labelledby="chk1-label" />
-            <label id="chk1-label">Show countdown</label>
-          </div>
-          <div style={styles.formElement}>
-            <input defaultChecked={showMilliseconds} onClick={optionLogCount} type="checkbox" aria-labelledby="chk2-label" />
-            <label id="chk2-label">Log elapsed milliseconds to console</label>
-          </div>
-        {/* </form> */}
+        <div style={styles.formElement}>
+          <input defaultChecked={displayCountdown} onClick={optionTimerText} type="checkbox" aria-labelledby="chk1-label" />
+          <label id="chk1-label">Show countdown</label>
+        </div>
+        <div style={styles.formElement}>
+          <input defaultChecked={showMilliseconds} onClick={optionLogCount} type="checkbox" aria-labelledby="chk2-label" />
+          <label id="chk2-label">Log elapsed milliseconds to console</label>
+        </div>
 
       </div>
     </div>
