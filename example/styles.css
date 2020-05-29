@@ -6,16 +6,6 @@ body {
 	padding: 0;
 }
 
-a {
-	color: #08c;
-	text-decoration: underline;
-}
-
-a:hover {
-	text-decoration: underline;
-	background-color: rgba(0, 136, 204, 0.144);
-}
-
 .container {
 	margin-left: auto;
 	margin-right: auto;
