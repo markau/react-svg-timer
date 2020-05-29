@@ -118,7 +118,7 @@ const App = () => {
         margin: '0.4em 0'
       },
       label: {
-        color: '#585858',
+        color: '#232323',
         fontSize: '0.85em',
         fontWeight: 'normal',
         marginLeft: '0.5em',
