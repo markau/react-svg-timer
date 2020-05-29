@@ -16,6 +16,7 @@ body {
 .heading-container {
   text-align: center;
   margin-bottom: 20px;
+  height: 80px;
 }
 
 .footer {

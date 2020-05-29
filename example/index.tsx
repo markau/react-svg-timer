@@ -199,16 +199,14 @@ const App = () => {
           <span style={styles.label}>Inner color</span>
         </div>
 
-        <form>
-          <div style={styles.formElement}>
-            <input defaultChecked={displayCountdown} onClick={optionTimerText} type="checkbox" aria-labelledby="chk1-label" />
-            <label id="chk1-label">Show countdown</label>
-          </div>
-          <div style={styles.formElement}>
-            <input defaultChecked={showMilliseconds} onClick={optionLogCount} type="checkbox" aria-labelledby="chk2-label" />
-            <label id="chk2-label">Log elapsed milliseconds to console</label>
-          </div>
-        </form>
+        <div style={styles.formElement}>
+          <input defaultChecked={displayCountdown} onClick={optionTimerText} type="checkbox" id="chk1" />
+          <label htmlFor="chk1">Show countdown</label>
+        </div>
+        <div style={styles.formElement}>
+          <input defaultChecked={showMilliseconds} onClick={optionLogCount} type="checkbox" id="chk2" />
+          <label htmlFor="chk2">Log elapsed milliseconds to console</label>
+        </div>
 
       </div>
     </main>
