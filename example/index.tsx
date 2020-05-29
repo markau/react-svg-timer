@@ -119,7 +119,7 @@ const App = () => {
       label: {
         color: '#585858',
         fontSize: '0.85em',
-        fontWeight: 'bold',
+        fontWeight: 400,
         marginLeft: '0.5em',
         textTransform: 'uppercase'
       },
@@ -205,7 +205,7 @@ const App = () => {
         </div>
         <div style={styles.formElement}>
           <input defaultChecked={showMilliseconds} onClick={optionLogCount} type="checkbox" id="chk2" />
-          <label htmlFor="chk2">Log elapsed milliseconds to console</label>
+          <label htmlFor="chk2">Log elapsed time to console</label>
         </div>
 
       </div>

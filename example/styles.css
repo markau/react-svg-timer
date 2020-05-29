@@ -1,5 +1,5 @@
 body {
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: 'IBM Plex Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #333;
   margin: 0;
@@ -34,14 +34,18 @@ h4,
 h5,
 h6 {
   color: #222;
-  font-weight: 100;
+  font-weight: 700;
   margin: 0.5em 0;
+}
+
+h2 {
+	font-weight: 400;
 }
 
 label {
   color: #585858;
   font-size: 0.85em;
-  font-weight: bold;
+  font-weight: 400;
   padding: 0.5em;
   text-transform: uppercase;
 }
@@ -78,6 +82,7 @@ header {
     position: absolute;
     top: 0;
     right: 0;
-    width: 20em;
+	width: 20em;
+	margin-top: 20px;
   }
 }
