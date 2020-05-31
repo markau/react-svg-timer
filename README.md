@@ -32,40 +32,26 @@ The component can take additional, optional props:
 A more complete implementation could therefore be:
 
 ````
+let [resetRequested, setResetRequested] = useState(false)
+let [timerIsComplete, setTimerIsComplete] = useState(false)
+let [logMilliseconds, setLogMilliseconds] = useState(true)
 
-// To keep track of the milliseconds elapsed
-this.timer = 0;
-
-this.state = {
-  resetRequested: false,
-  timerIsComplete: false,
-	logMilliseconds: true,
-};
-
-onComplete(status) {
-  this.setState({
-    timerIsComplete: status
-  });
+onComplete = (status) => {
+  setTimerIsComplete(status);
 }
 
-onReset() {
-  this.setState({
-    resetRequested: false
-  });
+onReset = () => {
+  setResetRequested(false);
 }
 
-timerValue(value) {
-  this.timer = value;
-  if (this.state.logMilliseconds) {
+timerValue = (value) => {
+  if (logMilliseconds) {
     console.log(value);
   }
 }
 
-onResetRequest() {
-  this.setState({
-    resetRequested: true
-  });
-  this.timer = 0;
+onResetRequest = () => {
+  setResetRequested(true);
 }
 
 render () {
@@ -76,11 +62,11 @@ render () {
       countdownColor="#00ffa8"
       innerColor="#fff"
       outerColor="#000"
-      resetTimer={this.onReset}
-      completeTimer={this.onComplete}
-      resetTimerRequested={this.state.resetRequested}
-      timerDuration={this.timerValue}
-      displayCountdown={this.state.displayCountdown}
+      resetTimer={onReset}
+      completeTimer={onComplete}
+      resetTimerRequested={resetRequested}
+      timerDuration={timerValue}
+      displayCountdown={displayCountdown}
     />
 
   );
