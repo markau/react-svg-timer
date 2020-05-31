@@ -8,7 +8,7 @@ A React component to provide an SVG-based timer button with visual feedback of e
 
 ## Installation
 
-```
+```bash
 npm install react-svg-timer
 ```
 
@@ -31,7 +31,7 @@ The component can take additional, optional props:
 
 A more complete implementation could therefore be:
 
-````
+```javascript
 let [resetRequested, setResetRequested] = useState(false)
 let [timerIsComplete, setTimerIsComplete] = useState(false)
 let [logMilliseconds, setLogMilliseconds] = useState(true)
