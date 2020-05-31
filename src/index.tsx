@@ -2,15 +2,15 @@ import React, { FC, useState, useEffect, useRef } from 'react';
 import moment from 'moment';
 import { TimerSVG } from './TimerSVG';
 
-interface TimerProps {
-  outerColor?: any;
-  innerColor?: any;
-  countdownColor?: any;
-  displayCountdown?: any;
+export interface ITimerProps {
+  outerColor?: string;
+  innerColor?: string;
+  countdownColor?: string;
+  displayCountdown?: boolean;
   timerDuration?: any;
-  resetTimerRequested?: any;
+  resetTimerRequested?: boolean;
   resetTimer?: any;
-  timerCount: any;
+  timerCount?: number;
   completeTimer?: any;
 }
 
@@ -32,9 +32,18 @@ function useInterval(callback: any, runTimer: any) {
   }, [runTimer]);
 }
 
-export const ReactSvgTimer: FC<TimerProps> = props => {
-  // prettier-ignore
-  let { outerColor, innerColor, countdownColor, displayCountdown, timerDuration, resetTimerRequested, resetTimer, timerCount, completeTimer } = props
+export const ReactSvgTimer: FC<ITimerProps> = ({
+  outerColor,
+  innerColor,
+  countdownColor,
+  displayCountdown,
+  timerDuration,
+  resetTimerRequested,
+  resetTimer,
+  timerCount,
+  completeTimer,
+}: ITimerProps) => {
+  timerCount = timerCount || 5;
   // State variables
   let [draw, setDraw] = useState<string>('');
   let [timerIsRunning, setTimerIsRunning] = useState(false);

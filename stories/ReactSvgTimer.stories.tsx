@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactSvgTimer } from '../src';
+import { ReactSvgTimer, ITimerProps } from '../src';
 import './styles.css';
 
 export default {
@@ -8,8 +8,8 @@ export default {
 
 // By passing optional props to this story, you can control the props of the component when
 // you consume the story in a test.
-export const Default = (props?: Partial<any>) =>
+export const Default = (props?: Partial<ITimerProps>) =>
 <div style={{ width: 400 }}>
-<ReactSvgTimer timerCount={5} />
+<ReactSvgTimer {...props} />
 </div>
 ;
