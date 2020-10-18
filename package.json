@@ -63,7 +63,7 @@
     "ts-loader": "7.0.5",
     "tsdx": "0.13.2",
     "tslib": "2.0.0",
-    "typescript": "3.9.3"
+    "typescript": "3.9.7"
   },
   "dependencies": {
     "moment": "^2.26.0"
