@@ -74,7 +74,7 @@ export const ReactSvgTimer: FC<ITimerProps> = ({
       setDraw(drawCoord(duration * degrees));
     } else {
       completeTimer(true);
-      setDraw(drawCoord(359.99));
+      setDraw(drawCoord(0));
     }
     // Inform the parent component of the current timer duration
     if (timerDuration) timerDuration(duration);
