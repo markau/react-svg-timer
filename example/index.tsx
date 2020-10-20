@@ -17,7 +17,7 @@ const App = () => {
   let [displayCountdownColorPicker, setDisplayCountdownColorPicker] = useState(false)
   let [displayInnerColorPicker, setDisplayInnerColorPicker] = useState(false)
   let [displayOuterColorPicker, setDisplayOuterColorPicker] = useState(false)
-  let [countdownColor, setCountdownColor] = useState({ r: '65', g: '182', b: '224', a: '1' })
+  let [countdownColor, setCountdownColor] = useState({ r: '0', g: '182', b: '224', a: '1' })
   let [innerColor, setInnerColor] = useState({ r: '255', g: '255', b: '255', a: '1' })
   let [outerColor, setOuterColor] = useState({ r: '40', g: '40', b: '40', a: '1' })
 

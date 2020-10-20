@@ -47,7 +47,6 @@ export const ReactSvgTimer: FC<ITimerProps> = ({
   // State variables
   let [draw, setDraw] = useState<string>('');
   let [timerIsRunning, setTimerIsRunning] = useState(false);
-  let [timerisReset, setTimerisReset] = useState(false);
   let [counterText, setcounterText] = useState('');
   let [duration, setDuration] = useState(0);
   let [elapsedTime, setElapsedTime] = useState(0);
@@ -81,9 +80,7 @@ export const ReactSvgTimer: FC<ITimerProps> = ({
   }, timerIsRunning);
 
   const start = () => {
-    if (!timerisReset) {
-      setElapsedTime(duration);
-    }
+    setElapsedTime(duration);
     setStartDateMoment(moment(new Date()));
     setTimerIsRunning(true);
   };
@@ -94,7 +91,6 @@ export const ReactSvgTimer: FC<ITimerProps> = ({
 
   const reset = () => {
     setTimerIsRunning(false);
-    setTimerisReset(true);
     setDuration(0);
     setElapsedTime(0);
     setDraw(drawCoord(360));
@@ -152,6 +148,6 @@ export const ReactSvgTimer: FC<ITimerProps> = ({
 ReactSvgTimer.defaultProps = {
   outerColor: '#282828',
   innerColor: '#ffffff',
-  countdownColor: '#41b6e0',
+  countdownColor: '#00b6e0',
   displayCountdown: true,
 };
