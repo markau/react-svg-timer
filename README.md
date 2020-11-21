@@ -2,6 +2,8 @@
 
 A React component to provide an SVG-based timer button with visual feedback of elapsed time.
 
+![CI](https://github.com/markau/react-svg-timer/workflows/CI/badge.svg)
+
 ## Demo
 
 [react-svg-timer.coolsmallapps.com](https://react-svg-timer.coolsmallapps.com)
