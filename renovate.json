@@ -1,11 +1,12 @@
 {
-  "extends": [
-    "config:base"
-  ],
+  "extends": ["config:base"],
+  "timezone": "Australia/Adelaide",
+  "schedule": ["every weekend"],
   "packageRules": [
     {
       "updateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
+      "automerge": true,
+      "automergeType": "branch"
     }
   ]
 }
