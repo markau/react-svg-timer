@@ -41,7 +41,7 @@
   "author": "Mark Andrews",
   "module": "dist/react-svg-timer.esm.js",
   "devDependencies": {
-    "@babel/core": "7.15.8",
+    "@babel/core": "7.25.9",
     "@types/react": "17.0.75",
     "@types/react-dom": "17.0.25",
     "babel-jest": "26.6.3",
