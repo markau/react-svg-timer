@@ -6,7 +6,7 @@ A React component to provide an SVG-based timer button with visual feedback of e
 
 ## Demo
 
-[react-svg-timer.coolsmallapps.com](https://react-svg-timer.coolsmallapps.com)
+[react-svg-timer.netlify.app](https://react-svg-timer.netlify.app/)
 
 ## Installation
 
